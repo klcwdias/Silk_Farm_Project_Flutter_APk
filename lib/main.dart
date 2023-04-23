@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashScreen(), // Show the SplashScreen first
       routes: {
-        '/Light Intensity': (context) => CalendarScreen(),
-        '/Humidity': (context) => CalendarScreen(),
-        '/Temperature': (context) => CalendarScreen(),
-        '/Fertigation Tank': (context) => CalendarScreen(),
-        '/EC': (context) => CalendarScreen(),
-        '/Water Level': (context) => CalendarScreen(),
+        '/Light Intensity': (context) => LightIntensity(),
+        '/Humidity': (context) => Humidity(),
+        '/Temperature': (context) => Temperature(),
+        '/Fertigation Tank': (context) => FreginationTank(),
+        '/EC': (context) => EC(),
+        '/Water Level': (context) => WaterLevel(),
         '/calendar': (context) => CalendarScreen(),
         '/notes': (context) => NotesReminder(),
         '/About Us': (context) => Aboutusscreen(),
@@ -288,6 +288,981 @@ class CalendarScreen extends StatelessWidget {
 }
 
 
+class FreginationTank extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fertigation Tank'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/PT-500-splash 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Water Level',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    'Fertigation Tank A',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: Text(
+                    'Fertigation Tank B',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(right: 16.0, bottom: 50, left: 20.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '75% - 1800L',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 80.0, bottom: 37, right: 20),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '60% - 1650L',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Humidity extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Humidity'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/shutterstock_596388659 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'HUMIDITY',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    'RH',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 70),
+                  child: Text(
+                    'MISTERS',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(
+                  right: 16.0,
+                  bottom: 50,
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '80%',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 100.0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('on/off'),
+                          style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LightIntensity extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Light Intensity'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/maxresdefault 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'LIGHT / SHADES',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    'LUX',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 70),
+                  child: Text(
+                    'SHADES',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(right: 16.0, bottom: 50),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '3700LX',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 100.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'A',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 100.0),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('on/off'),
+                          style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  const Text('B'),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10.0, bottom: 5),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('on/off'),
+                          style: ButtonStyle(
+                            minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 200.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'On',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 200.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Off',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [],
+                  ),
+                ],
+              ),
+              Column(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'On',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'On',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Temperature extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Temperature'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/image-removebg-preview (1) 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'TEMPERATURE',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    'TEMP',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: 70,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '25°c',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 175),
+                child: Text(
+                  'COOLING PAD',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('on/off'),
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 200),
+                child: Text(
+                  'EX FAN 01',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('on/off'),
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 200),
+                child: Text(
+                  'EX FAN 02',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('on/off'),
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 200),
+                child: Text(
+                  'EX FAN 03',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('on/off'),
+                    style: ButtonStyle(
+                      minimumSize: MaterialStateProperty.all(Size(50, 0)),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class EC extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('EC'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/Measuring-pH-1 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'electrical Conductivity',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    'Fertigation Tank A',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: Text(
+                    'Fertigation Tank B',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(right: 16.0, bottom: 50, left: 20.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '0.6MS/CM',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding:
+                    EdgeInsets.only(left: 100.0, bottom: 37, right: 20),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '0.7MS/CM',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WaterLevel extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Temperature'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'images/PT-500-splash 1.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: 410,
+              ),
+              const Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Water Level',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    'Fertigation Tank A',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: Text(
+                    'Fertigation Tank B',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(right: 16.0, bottom: 50, left: 20.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '75% - 1800L',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 80.0, bottom: 37, right: 20),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '60% - 1650L',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                    width: 10,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                // Add code to navigate to the note screen
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.note),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotesReminder()),
+                );
+
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class NotesReminder extends StatefulWidget {
   @override
